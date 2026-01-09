@@ -263,6 +263,26 @@
             transform: translateY(-2px);
         }
 
+        .download-resume{
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .download-resume a{
+            color: var(--muted-text);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .download-resume a:hover{
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
         /* Section Styles */
         section {
             padding: 5rem 0;
@@ -614,14 +634,13 @@
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
-            <div class="logo">Ketan Kumar Suthar</div>
+            <div class="logo"></div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="resume/Ketan's Resume (09Jan26).pdf" target="_blank">Resume <i class="fa-solid fa-download"></i></a></li>
             </ul>
             <div class="mobile-menu">
                 <i class="fas fa-bars"></i>
@@ -654,7 +673,7 @@
                         <div class="avatar">
                             <img src="ketan.png" alt="">
                         </div>
-                        <h3>Ketan Suthar</h3>
+                        <h3>Ketan Kumar Suthar</h3>
                         <p class="grade">CGPA: 8.07</p>
                         <p>Parul Institute of Technology</p>
                         <div class="social-links">
@@ -671,6 +690,7 @@
                                 <i class="fas fa-laptop-code"></i>
                             </a>
                         </div>
+                        <div class="download-resume"><a href="resume/Ketan's Resume (09Jan26).pdf" target="_blank">Resume <i class="fa-solid fa-download"></i></a></div>
                     </div>
                 </div>
             </div>
