@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -237,7 +238,7 @@
             color: white;
         }
 
-        .avatar img{
+        .avatar img {
             height: 100%;
             width: 100%;
             border-radius: 50%;
@@ -424,6 +425,16 @@
             color: var(--accent-color);
         }
 
+        .project-footer {
+            width: 100%;
+            display: flex;
+            justify-content: space-between; /* left & right */
+            align-items: center;
+        }
+
+       
+
+
         /* Education & Achievements */
         .info-grid {
             display: grid;
@@ -525,6 +536,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -597,17 +609,19 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
-            <div class="logo">Ketan Suthar</div>
+            <div class="logo">Ketan Kumar Suthar</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="resume/Ketan's Resume (09Jan26).pdf" target="_blank">Resume <i class="fa-solid fa-download"></i></a></li>
             </ul>
             <div class="mobile-menu">
                 <i class="fas fa-bars"></i>
@@ -620,9 +634,10 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Ketan Suthar</h1>
+                    <h1>Ketan Kumar Suthar</h1>
                     <div class="subtitle">Full Stack Developer</div>
-                    <p>Passionate computer science student with expertise in web development, mobile app development, and problem-solving. Building innovative solutions with modern technologies.</p>
+                    <p>Passionate computer science student with expertise in web development, mobile app development,
+                        and problem-solving. Building innovative solutions with modern technologies.</p>
                     <div class="cta-buttons">
                         <a href="#projects" class="btn btn-primary">
                             <i class="fas fa-code"></i>
@@ -641,7 +656,7 @@
                         </div>
                         <h3>Ketan Suthar</h3>
                         <p class="grade">CGPA: 8.07</p>
-                        <p>Parul Institute Of Technology</p>
+                        <p>Parul Institute of Technology</p>
                         <div class="social-links">
                             <a href="https://www.linkedin.com/in/ketan-suthar-8560b4276/" target="_blank">
                                 <i class="fab fa-linkedin"></i>
@@ -719,7 +734,7 @@
                         <span class="skill-tag">DBMS</span>
                         <span class="skill-tag">OS</span>
                         <span class="skill-tag">OOPs</span>
-                        <span class="skill-tag">System Design</span>
+                        <!-- <span class="skill-tag">System Design</span> -->
                         <span class="skill-tag">SDLC</span>
                     </div>
                 </div>
@@ -741,7 +756,8 @@
                         <div class="project-date">Dec 2024 - Apr 2025</div>
                     </div>
                     <div class="project-content">
-                        <p>Hostel Mess Management System with responsive web interface for meal preferences and QR code scanning system.</p>
+                        <p>Hostel Mess Management System with responsive web interface for meal preferences and QR code
+                            scanning system.</p>
                         <div class="project-tech">
                             <span class="tech-tag">HTML</span>
                             <span class="tech-tag">CSS</span>
@@ -795,7 +811,8 @@
                         <div class="project-date">Jul 2025 - Sep 2025</div>
                     </div>
                     <div class="project-content">
-                        <p>Plants-based e-commerce web application with dynamic product listings and secure authentication.</p>
+                        <p>Plants-based e-commerce web application with dynamic product listings and secure
+                            authentication.</p>
                         <div class="project-tech">
                             <span class="tech-tag">MongoDB</span>
                             <span class="tech-tag">Express.js</span>
@@ -809,10 +826,16 @@
                             <li>Smooth API performance for seamless UX</li>
                         </ul>
                         <div class="project-links">
-                            <a href="https://github.com/ketansuthar11/Smartwatch-Companion-App-for-Health-Monitoring" target="_blank">
-                                <i class="fab fa-github"></i>
-                                View Code
-                            </a>
+                            <div class="project-footer">
+                                <a href="https://github.com/ketansuthar11/PYH-Horticulture" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                    View Code
+                                </a>
+                                <a href="https://prithviyadavhorticulture.netlify.app/landing" target="_blank">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    Visit Now
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -856,8 +879,8 @@
                         <h4>Problem Solving</h4>
                         <div class="education-meta">Competitive Programming</div>
                         <ul class="project-features" style="margin: 1rem 0;">
-                            <li>350+ Problems solved across platforms</li>
-                            <li>300+ Problems on LeetCode</li>
+                            <li>450+ Problems solved across platforms</li>
+                            <li>400+ Problems on LeetCode</li>
                             <li>50+ Problems on GeeksforGeeks</li>
                         </ul>
                     </div>
@@ -894,7 +917,8 @@
                         <a href="mailto:ketansu55@gmail.com">ketansu55@gmail.com</a>
                     </div>
                 </div>
-                <div class="social-links" style="justify-content: center; gap: 2rem; font-size: 2rem; margin-top: 2rem;">
+                <div class="social-links"
+                    style="justify-content: center; gap: 2rem; font-size: 2rem; margin-top: 2rem;">
                     <a href="https://www.linkedin.com/in/ketan-suthar-8560b4276/" target="_blank">
                         <i class="fab fa-linkedin"></i>
                     </a>
@@ -969,7 +993,7 @@
         });
 
         // Mobile menu toggle (basic functionality)
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
+        document.querySelector('.mobile-menu').addEventListener('click', function () {
             const navLinks = document.querySelector('.nav-links');
             navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
         });
@@ -1007,11 +1031,11 @@
 
         // Add hover effect to project cards
         document.querySelectorAll('.project-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
+            card.addEventListener('mouseenter', function () {
                 this.style.transform = 'translateY(-15px) rotateX(5deg)';
             });
-            
-            card.addEventListener('mouseleave', function() {
+
+            card.addEventListener('mouseleave', function () {
                 this.style.transform = 'translateY(0) rotateX(0)';
             });
         });
@@ -1060,7 +1084,7 @@
         }
 
         // Initialize animations when page loads
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Add loading animation
             document.body.style.opacity = '0';
             setTimeout(() => {
@@ -1088,7 +1112,7 @@
         let konamiCode = [];
         const correctCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]; // Up, Up, Down, Down, Left, Right, Left, Right, B, A
 
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', function (e) {
             konamiCode.push(e.keyCode);
             if (konamiCode.length > correctCode.length) {
                 konamiCode.shift();
@@ -1121,4 +1145,5 @@
         document.head.appendChild(style);
     </script>
 </body>
+
 </html>
