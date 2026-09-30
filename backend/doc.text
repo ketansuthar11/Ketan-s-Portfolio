@@ -1,0 +1,114 @@
+PUBLIC
+│
+├── GET    /api/portfolio
+├── GET    /api/projects/:slug
+├── GET    /api/resume
+├── POST   /api/contact
+└── POST   /api/views
+
+AUTH
+│
+├── POST   /api/auth/login
+├── POST   /api/auth/logout
+└── GET    /api/auth/me
+
+ADMIN
+│
+├── GET    /api/admin/dashboard
+│
+├── profile
+│   ├── GET    /api/admin/profile
+│   └── PUT    /api/admin/profile
+│
+├── roles
+│   ├── GET
+│   ├── POST
+│   ├── PUT /:id
+│   ├── DELETE /:id
+│   └── PATCH /:id/default
+│
+├── images
+│   ├── GET
+│   ├── POST
+│   ├── DELETE /:id
+│   └── PATCH /:id/default
+│
+├── resumes
+│   ├── GET
+│   ├── POST
+│   ├── DELETE /:id
+│   └── PATCH /:id/default
+│
+├── social-links
+│   ├── GET
+│   ├── POST
+│   ├── PUT /:id
+│   └── DELETE /:id
+│
+├── education
+│   ├── GET
+│   ├── GET /:id
+│   ├── POST
+│   ├── PUT /:id
+│   ├── DELETE /:id
+│   └── PATCH /:id/visibility
+│
+├── skills
+│   ├── GET
+│   ├── GET /:id
+│   ├── POST
+│   ├── PUT /:id
+│   ├── DELETE /:id
+│   └── PATCH /:id/visibility
+│
+├── experience
+│   ├── GET
+│   ├── GET /:id
+│   ├── POST
+│   ├── PUT /:id
+│   ├── DELETE /:id
+│   └── PATCH /:id/visibility
+│
+├── projects
+│   ├── GET
+│   ├── GET /:id
+│   ├── POST
+│   ├── PUT /:id
+│   ├── DELETE /:id
+│   ├── PATCH /:id/visibility
+│   └── PATCH /:id/featured
+│
+├── achievements
+│   ├── GET
+│   ├── GET /:id
+│   ├── POST
+│   ├── PUT /:id
+│   ├── DELETE /:id
+│   └── PATCH /:id/visibility
+│
+├── certifications
+│   ├── GET
+│   ├── GET /:id
+│   ├── POST
+│   ├── PUT /:id
+│   ├── DELETE /:id
+│   └── PATCH /:id/visibility
+│
+├── sections
+│   ├── GET
+│   ├── POST
+│   ├── PUT /:id
+│   ├── DELETE /:id
+│   ├── PATCH /:id/visibility
+│   └── PATCH /:id/order
+│
+├── messages
+│   ├── GET
+│   ├── GET /:id
+│   ├── PATCH /:id/read
+│   └── DELETE /:id
+│
+└── analytics
+    ├── GET
+    ├── GET /views
+    └── GET /projects
