@@ -105,8 +105,7 @@ export default function Hero({ profile, skills }: HeroProps) {
                     <div
                         className="
                             relative
-                            z-20
-                            min-w-0
+                            z-1
                             max-w-xl
                         "
                     >
