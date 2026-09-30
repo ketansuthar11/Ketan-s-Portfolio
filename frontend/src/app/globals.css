@@ -1,0 +1,168 @@
+@import "tailwindcss";
+
+/* Tailwind v4: use next-themes `.dark` class for dark: utilities */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #f7f7f5;
+  --surface: #eeeeec;
+  --surface-light: #e7e7e4;
+
+  --foreground: #111111;
+  --muted: #666666;
+
+  --lime: #c7ff00;
+  --lime-soft: #d7ff4a;
+
+  --border: rgba(0, 0, 0, 0.09);
+}
+
+.dark {
+  --background: #050505;
+  --surface: #0b0b0b;
+  --surface-light: #111111;
+
+  --foreground: #f5f5f0;
+  --muted: #929292;
+
+  --lime: #c7ff00;
+  --lime-soft: #d7ff4a;
+
+  --border: rgba(255, 255, 255, 0.09);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--background);
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-jetbrains-mono), monospace;
+  overflow-x: hidden;
+
+  transition:
+    background-color 200ms ease,
+    color 200ms ease;
+}
+
+/* ------------------------------
+   Selection
+-------------------------------- */
+
+::selection {
+  background: var(--lime);
+  color: #050505;
+}
+
+/* ------------------------------
+   Scrollbar
+-------------------------------- */
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #777;
+  border-radius: 10px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #333;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--lime);
+}
+
+/* ------------------------------
+   Subtle background texture
+-------------------------------- */
+
+.site-noise {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.035;
+
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.7'/%3E%3C/svg%3E");
+}
+
+/* ------------------------------
+   Technical grid
+-------------------------------- */
+
+.site-grid {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.035;
+
+  background-image:
+    linear-gradient(
+      rgba(0, 0, 0, 0.08) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.08) 1px,
+      transparent 1px
+    );
+
+  background-size: 70px 70px;
+
+  mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    transparent 80%
+  );
+}
+
+.dark .site-grid {
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.08) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.08) 1px,
+      transparent 1px
+    );
+}
+
+/* ------------------------------
+   Lime utility
+-------------------------------- */
+
+.lime {
+  color: var(--lime);
+}
+
+.lime-bg {
+  background: var(--lime);
+  color: #050505;
+}
+
+/* ------------------------------
+   Focus
+-------------------------------- */
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--lime);
+  outline-offset: 4px;
+}
