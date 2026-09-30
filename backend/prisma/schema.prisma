@@ -1,0 +1,395 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+/**
+ * =========================
+ * PROFILE
+ * =========================
+ */
+
+model Profile {
+  id       String  @id @default(cuid())
+  name     String
+  bio      String?
+  email    String?
+  phone    String?
+  location String?
+
+  roles       ProfileRole[]
+  images      ProfileImage[]
+  resumes     Resume[]
+  socialLinks SocialLink[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+/**
+ * =========================
+ * PROFILE ROLES
+ * =========================
+ */
+
+model ProfileRole {
+  id        String @id @default(cuid())
+  profileId String
+
+  role      String
+  isDefault Boolean @default(false)
+  order     Int     @default(0)
+
+  profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([profileId])
+}
+
+/**
+ * =========================
+ * PROFILE IMAGES
+ * =========================
+ */
+
+model ProfileImage {
+  id        String @id @default(cuid())
+  profileId String
+
+  bucket    String @default("uploads")
+  objectKey String
+
+  isDefault Boolean @default(false)
+
+  profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+
+  @@index([profileId])
+}
+
+/**
+ * =========================
+ * RESUMES
+ * =========================
+ */
+
+model Resume {
+  id        String @id @default(cuid())
+  profileId String
+
+  name      String
+  bucket    String @default("uploads")
+  objectKey String
+
+  isDefault Boolean @default(false)
+
+  profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([profileId])
+}
+
+/**
+ * =========================
+ * SOCIAL LINKS
+ * =========================
+ */
+
+model SocialLink {
+  id        String @id @default(cuid())
+  profileId String
+
+  platform  String
+  url       String
+  icon      String?
+  isVisible Boolean @default(true)
+  order     Int     @default(0)
+
+  profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([profileId])
+}
+
+/**
+ * =========================
+ * EDUCATION
+ * =========================
+ */
+
+model Education {
+  id String @id @default(cuid())
+
+  level           EducationLevel
+  institutionType InstitutionType
+
+  institutionName   String
+  field             String?
+  boardOrUniversity String?
+
+  startDate DateTime?
+  endDate   DateTime?
+
+  scoreType ScoreType?
+  score     Decimal?   @db.Decimal(5, 2)
+
+  description String?
+
+  isVisible Boolean @default(true)
+  order     Int     @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([order])
+}
+
+/**
+ * =========================
+ * SKILLS
+ * =========================
+ */
+
+model Skill {
+  id String @id @default(cuid())
+
+  category String
+  name     String
+  icon     String?
+
+  level Int?
+
+  isVisible Boolean @default(true)
+  order     Int     @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([category])
+  @@index([order])
+}
+
+/**
+ * =========================
+ * EXPERIENCE
+ * =========================
+ */
+
+model Experience {
+  id String @id @default(cuid())
+
+  company  String
+  role     String
+  location String?
+
+  startDate DateTime
+  endDate   DateTime?
+  isCurrent Boolean   @default(false)
+
+  description      String?
+  responsibilities Json?
+
+  isVisible Boolean @default(true)
+  order     Int     @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([order])
+}
+
+/**
+ * =========================
+ * PROJECTS
+ * =========================
+ */
+
+model Project {
+  id String @id @default(cuid())
+
+  title       String
+  slug        String  @unique
+  description String?
+
+  startDate DateTime?
+  endDate   DateTime?
+
+  githubUrl String?
+  liveUrl   String?
+  imageUrl  String?
+
+  technologies Json?
+  features     Json?
+
+  isFeatured Boolean @default(false)
+  isVisible  Boolean @default(true)
+  order      Int     @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([order])
+  @@index([isFeatured])
+}
+
+/**
+ * =========================
+ * ACHIEVEMENTS
+ * =========================
+ */
+
+model Achievement {
+  id String @id @default(cuid())
+
+  title       String
+  description String?
+  date        DateTime?
+  url         String?
+
+  isVisible Boolean @default(true)
+  order     Int     @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([order])
+}
+
+/**
+ * =========================
+ * CERTIFICATIONS
+ * =========================
+ */
+
+model Certification {
+  id String @id @default(cuid())
+
+  name          String
+  issuer        String?
+  issueDate     DateTime?
+  credentialId  String?
+  credentialUrl String?
+
+  isVisible Boolean @default(true)
+  order     Int     @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([order])
+}
+
+/**
+ * =========================
+ * CONTACT MESSAGES
+ * =========================
+ */
+
+model ContactMessage {
+  id String @id @default(cuid())
+
+  name    String
+  email   String
+  message String
+
+  status MessageStatus @default(UNREAD)
+
+  createdAt DateTime @default(now())
+
+  @@index([status])
+  @@index([createdAt])
+}
+
+/**
+ * =========================
+ * PORTFOLIO SECTIONS
+ * =========================
+ */
+
+model PortfolioSection {
+  id String @id @default(cuid())
+
+  name String
+  slug String      @unique
+  type SectionType
+
+  isVisible Boolean @default(true)
+  order     Int     @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([order])
+}
+
+/**
+ * =========================
+ * PORTFOLIO VIEWS
+ * =========================
+ */
+
+model PortfolioView {
+  id String @id @default(cuid())
+
+  ipHash    String?
+  userAgent String?
+
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
+}
+
+/**
+ * =========================
+ * ENUMS
+ * =========================
+ */
+
+enum EducationLevel {
+  TENTH
+  TWELFTH
+  DIPLOMA
+  BACHELOR
+  MASTER
+  PHD
+}
+
+enum InstitutionType {
+  SCHOOL
+  COLLEGE
+  UNIVERSITY
+  INSTITUTE
+}
+
+enum ScoreType {
+  CGPA
+  PERCENTAGE
+}
+
+enum MessageStatus {
+  UNREAD
+  READ
+}
+
+enum SectionType {
+  HOME
+  SKILLS
+  PROJECTS
+  EXPERIENCE
+  EDUCATION
+  ACHIEVEMENTS
+  CERTIFICATIONS
+  CONTACT
+  CUSTOM
+}
