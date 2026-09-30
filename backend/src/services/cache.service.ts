@@ -1,8 +1,12 @@
-import redis from "../config/redis.js";
+import redis, {
+    connectRedis,
+} from "../config/redis.js";
 
 export const getCache = async <T>(
     key: string
 ): Promise<T | null> => {
+    await connectRedis();
+
     const value = await redis.get(key);
 
     if (!value) {
@@ -17,6 +21,8 @@ export const setCache = async <T>(
     value: T,
     ttl = 300
 ) => {
+    await connectRedis();
+
     await redis.set(
         key,
         JSON.stringify(value),
@@ -29,5 +35,7 @@ export const setCache = async <T>(
 export const deleteCache = async (
     key: string
 ) => {
+    await connectRedis();
+
     await redis.del(key);
 };
