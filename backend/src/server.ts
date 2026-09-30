@@ -21,7 +21,6 @@ import publicResumeRoutes from "./routes/public-resume.routes.js";
 import authRoutes from "./routes/auth.routes.js"; 
 
 import dotenv from "dotenv";
-import { connectRedis } from "./config/redis.js";
 dotenv.config();
 
 const app = express();
@@ -57,8 +56,4 @@ app.get("/api/health", (req, res) => {
     });
 });
 
-const PORT = process.env.PORT || 5000;
-await connectRedis();
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+export default app;
