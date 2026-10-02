@@ -18,7 +18,8 @@ import dashboardRoutes from "./routes/dashboard.routes.js";
 import portfolioRoutes from "./routes/portfolio.routes.js";
 import viewRoutes from "./routes/view.routes.js";
 import publicResumeRoutes from "./routes/public-resume.routes.js";
-import authRoutes from "./routes/auth.routes.js"; 
+import authRoutes from "./routes/auth.routes.js";
+import visitorRoutes from "./routes/visitor.routes.js";
 
 import dotenv from "dotenv";
 dotenv.config();
@@ -46,6 +47,7 @@ app.use("/api/admin/dashboard", dashboardRoutes);
 app.use("/api/contact", contactRoutes);
 app.use("/api/portfolio",   portfolioRoutes);
 app.use("/api/views",viewRoutes);
+app.use("/api/visitors",visitorRoutes);
 app.use("/api/resume",publicResumeRoutes);
 app.use( "/api/auth", authRoutes );
 
@@ -55,5 +57,9 @@ app.get("/api/health", (req, res) => {
         message: "Portfolio API is running",
     });
 });
+
+app.listen(5000,()=>{
+    console.log("i am running")
+})
 
 export default app;
