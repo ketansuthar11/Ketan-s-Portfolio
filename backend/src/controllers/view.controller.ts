@@ -107,3 +107,26 @@ export const getViewStatsController = async (
         });
     }
 };
+
+export const getViewCountController = async (
+    _req: Request,
+    res: Response
+) => {
+    try {
+        const views = await prisma.portfolioView.count();
+
+        return res.status(200).json({
+            success: true,
+            data: {
+                views,
+            },
+        });
+    } catch (error) {
+        console.error("Get view count error:", error);
+
+        return res.status(500).json({
+            success: false,
+            message: "Failed to fetch view count",
+        });
+    }
+};
