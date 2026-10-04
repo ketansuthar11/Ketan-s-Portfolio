@@ -1,38 +1,51 @@
 import jwt from "jsonwebtoken";
 
-const adminEmail =
-    process.env.ADMIN_EMAIL;
+const getAdminEmail = (): string => {
+    const value = process.env.ADMIN_EMAIL;
 
-const adminPassword =
-    process.env.ADMIN_PASSWORD;
+    if (!value) {
+        throw new Error(
+            "ADMIN_EMAIL is not configured"
+        );
+    }
 
-const jwtSecret =
-    process.env.JWT_SECRET;
+    return value;
+};
 
-if (!adminEmail) {
-    throw new Error(
-        "ADMIN_EMAIL is not configured"
-    );
-}
+const getAdminPassword = (): string => {
+    const value = process.env.ADMIN_PASSWORD;
 
-if (!adminPassword) {
-    throw new Error(
-        "ADMIN_PASSWORD is not configured"
-    );
-}
+    if (!value) {
+        throw new Error(
+            "ADMIN_PASSWORD is not configured"
+        );
+    }
 
-if (!jwtSecret) {
-    throw new Error(
-        "JWT_SECRET is not configured"
-    );
-}
+    return value;
+};
+
+const getJwtSecret = (): string => {
+    const value = process.env.JWT_SECRET;
+
+    if (!value) {
+        throw new Error(
+            "JWT_SECRET is not configured"
+        );
+    }
+
+    return value;
+};
 
 export const loginAdmin = (
     email: string,
     password: string
 ) => {
+    const adminEmail = getAdminEmail();
+    const adminPassword = getAdminPassword();
+    const jwtSecret = getJwtSecret();
+
     if (
-        email !== adminEmail ||
+        email.trim() !== adminEmail.trim() ||
         password !== adminPassword
     ) {
         throw new Error(
@@ -55,6 +68,8 @@ export const loginAdmin = (
 export const verifyToken = (
     token: string
 ) => {
+    const jwtSecret = getJwtSecret();
+
     return jwt.verify(
         token,
         jwtSecret

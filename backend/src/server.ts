@@ -58,6 +58,8 @@ app.get("/api/health", (req, res) => {
     });
 });
 
-
+app.listen(5000,()=>{
+    console.log("i am running")
+})
 
 export default app;
