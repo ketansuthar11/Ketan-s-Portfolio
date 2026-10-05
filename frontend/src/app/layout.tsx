@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import { getPortfolio } from "@/lib/api/portfolio";
 import ThemeProvider from "@/components/theme/ThemeProvider";
+import PortfolioAI from "@/components/ai/PortfolioAI";
 
 import "./globals.css";
 
@@ -30,6 +31,7 @@ export default function RootLayout({
       <body className={jetBrainsMono.variable}>
         <ThemeProvider>
           {children}
+          <PortfolioAI />
         </ThemeProvider>
       </body>
     </html>
