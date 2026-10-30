@@ -6,6 +6,7 @@ import { FormEvent, useState } from "react";
 import type { PortfolioProfile } from "@/types/portfolio";
 import { submitContactMessage } from "@/lib/api/portfolio";
 
+
 type ContactForm = {
     name: string;
     email: string;
@@ -223,16 +224,20 @@ export default function Contact({ profile }: ContactProps) {
                                     key={link.id}
                                     href={link.url}
                                     target="_blank"
-                                    rel="noreferrer"
-                                    className="
-                                        text-xs
-                                        text-neutral-600
-                                        dark:text-neutral-500
-                                        transition-colors
-                                        hover:text-[#C7FF00]
-                                    "
+                                    rel="noopener noreferrer"
+                                    aria-label={link.platform}
+                                    className="inline-flex items-center gap-2 rounded-md text-xs text-neutral-600 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-[#C7FF00]"
                                 >
-                                    {link.platform}
+                                    <img
+                                        src={`https://thesvg.org/icons/${link.platform.toLowerCase()}/default.svg`}
+                                        alt=""
+                                        aria-hidden="true"
+                                        width={16}
+                                        height={16}
+                                        loading="lazy"
+                                        className="h-4 w-4 shrink-0 object-contain"
+                                    />
+                                    <span>{link.platform}</span>
                                 </a>
                             ))}
                         </div>
@@ -272,7 +277,7 @@ export default function Contact({ profile }: ContactProps) {
                                     text-[#C7FF00]
                                 "
                             >
-                                ✓
+                                âœ“
                             </span>
 
                             <h3
@@ -534,7 +539,7 @@ export default function Contact({ profile }: ContactProps) {
 
                 {profile?.name && (
                     <span>
-                        © {new Date().getFullYear()} {profile.name}
+                        Â© {new Date().getFullYear()} {profile.name}
                     </span>
                 )}
             </div>

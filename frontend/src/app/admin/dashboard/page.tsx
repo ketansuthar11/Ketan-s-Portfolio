@@ -13,6 +13,7 @@ import {
     LogOut,
     ArrowUpRight,
     UserRound,
+    PanelsTopLeft,
     Code2,
     BriefcaseBusiness,
     GraduationCap,
@@ -172,54 +173,61 @@ export default function AdminDashboardPage() {
 
     const quickActions = [
         {
-            title: "Profile",
+            title: "Manage Portfolio",
             description:
-                "Personal information",
-            icon: UserRound,
-            path: "/admin/profile",
+                "Add, edit and organize portfolio content",
+            icon: PanelsTopLeft,
+            path: "/admin/manage",
         },
-        {
-            title: "Skills",
-            description:
-                "Technical skills",
-            icon: Code2,
-            path: "/admin/skills",
-        },
-        {
-            title: "Experience",
-            description:
-                "Work experience",
-            icon: BriefcaseBusiness,
-            path: "/admin/experience",
-        },
-        {
-            title: "Education",
-            description:
-                "Education details",
-            icon: GraduationCap,
-            path: "/admin/education",
-        },
-        {
-            title: "Projects",
-            description:
-                "Portfolio projects",
-            icon: FolderKanban,
-            path: "/admin/projects",
-        },
-        {
-            title: "Resume",
-            description:
-                "Manage resume",
-            icon: FileText,
-            path: "/admin/resume",
-        },
-        {
-            title: "Social Links",
-            description:
-                "Social profiles",
-            icon: Link2,
-            path: "/admin/social-links",
-        },
+        // {
+        //     title: "Profile",
+        //     description:
+        //         "Personal information",
+        //     icon: UserRound,
+        //     path: "/admin/profile",
+        // },
+        // {
+        //     title: "Skills",
+        //     description:
+        //         "Technical skills",
+        //     icon: Code2,
+        //     path: "/admin/skills",
+        // },
+        // {
+        //     title: "Experience",
+        //     description:
+        //         "Work experience",
+        //     icon: BriefcaseBusiness,
+        //     path: "/admin/experience",
+        // },
+        // {
+        //     title: "Education",
+        //     description:
+        //         "Education details",
+        //     icon: GraduationCap,
+        //     path: "/admin/education",
+        // },
+        // {
+        //     title: "Projects",
+        //     description:
+        //         "Portfolio projects",
+        //     icon: FolderKanban,
+        //     path: "/admin/projects",
+        // },
+        // {
+        //     title: "Resume",
+        //     description:
+        //         "Manage resume",
+        //     icon: FileText,
+        //     path: "/admin/resume",
+        // },
+        // {
+        //     title: "Social Links",
+        //     description:
+        //         "Social profiles",
+        //     icon: Link2,
+        //     path: "/admin/social-links",
+        // },
     ];
 
     return (
@@ -471,7 +479,7 @@ export default function AdminDashboardPage() {
                     <div className="mb-4">
 
                         <h2 className="text-xl font-semibold text-white">
-                            Quick Actions
+                            Quick Action
                         </h2>
 
                         <p className="mt-1.5 text-sm text-white/50">
@@ -751,7 +759,7 @@ export default function AdminDashboardPage() {
                                                             </span>
 
                                                             <span className="text-white/15">
-                                                                •
+                                                                â€¢
                                                             </span>
 
                                                             <span className="shrink-0 text-[10px] text-white/25">
